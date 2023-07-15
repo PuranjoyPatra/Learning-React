@@ -1,14 +1,5 @@
 import "./Video.css";
 function Video({ title, channel, views, times, verified, children }) {
-  // let topic = "React Js tutorial";
-  // console.log(props);
-  // let channeljsx;
-  // if(verified){
-  //   channeljsx = <div className='channel'>{channel} ⌚</div>
-  // }
-  // else{
-  //   channeljsx = <div className='channel'>{channel}</div>
-  // }
   return (
     <>
       <div className='container'>
@@ -20,13 +11,10 @@ function Video({ title, channel, views, times, verified, children }) {
         </div>
 
         <div className='title'>{title} - the complete guide</div>
-        {/* {verified ? (
-          <div className='channel'>{channel} ⌚</div>
-        ) : (
-          <div className='channel'>{channel}</div>
-        )} */}
-        {/* <div className='channel'>{channel} {verified ? '⌚': null}</div> */}
-        <div className='channel'>{channel} {verified && '⌚'}</div>
+
+        <div className='channel'>
+          {channel} {verified && "⌚"}
+        </div>
         <div className='views'>
           {views} views <span>|</span> {times}
         </div>

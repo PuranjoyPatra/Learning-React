@@ -1,0 +1,88 @@
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+* {
+  margin: 0;
+}
+.App {
+  background-color: #282c34;
+  /* display: block; */
+  /* width: suto; */
+  /* height: auto; */
+  width: 100%;
+  height: 100vh;
+  overflow: scroll;
+}
+p {
+  color: white;
+}
+.App h1,
+h2 {
+  font-weight: bold;
+  color: lightgoldenrodyellow;
+  font-size: 2em;
+  padding-top: 0.2em;
+  margin-bottom: 0.3em;
+}
+.pfName {
+  color: lightgrey;
+  font-size: 1.8em;
+  font-weight: 500;
+}
+.email {
+  font-size: 1em;
+  color: aliceblue;
+  margin: 5px 0px;
+
+}
+
+.head{
+  font-size: 26px;
+  text-decoration: underline;
+  font-weight: bold;
+  font-style: italic;
+  margin: 5px 0;
+}
+
+.education li{
+  /* font-size: 15px; */
+  list-style-type: lower-roman;
+  color: antiquewhite;
+}
+

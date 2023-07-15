@@ -2,26 +2,28 @@ import Video from "./Video";
 import Border from "./Border";
 import PlayButton from "./PlayButton";
 
-function VideoList({videos}) {
+function VideoList({ videos, deleteVideo, editVideo }) {
   return (
     <>
       {videos.map((video) => (
-        <Border key={video.id} color='gold'>
-          <Video
-            title={video.title}
-            channel={video.channel}
-            views={video.views}
-            times={video.times}
-            verified={video.verified}
+        <Video
+        key={video.id}
+          id={video.id}
+          title={video.title}
+          channel={video.channel}
+          views={video.views}
+          times={video.times}
+          verified={video.verified}
+          deleteVideo={deleteVideo}
+          editVideo={editVideo}
+        >
+          <PlayButton
+            onPlay={() => console.log("playing...", video.title)}
+            onPause={() => console.log("paused. ", video.title)}
           >
-            <PlayButton
-              onPlay={() => console.log("playing...", video.title)}
-              onPause={() => console.log("paused. ", video.title)}
-            >
-              {video.title}
-            </PlayButton>
-          </Video>
-        </Border>
+            {video.title}
+          </PlayButton>
+        </Video>
       ))}
     </>
   );

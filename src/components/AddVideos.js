@@ -1,7 +1,7 @@
 import "./AddVideos.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function AddVideos({ addVideos }) {
+function AddVideos({ addVideos, editableVideo, updateVideo }) {
   const initState = {
     channel: "code with OS",
     title: "",
@@ -18,10 +18,20 @@ function AddVideos({ addVideos }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    addVideos(video);
+    if (editableVideo) {
+      updateVideo(video);
+    } else {
+      addVideos(video);
+    }
+
     setVideo(initState);
     // console.log(video);
   }
+  useEffect(() => {
+    if (editableVideo) {
+      setVideo(editableVideo);
+    }
+  }, [editableVideo]);
 
   return (
     <form>
@@ -39,7 +49,9 @@ function AddVideos({ addVideos }) {
         placeholder='Video Views'
         value={video.views}
       />
-      <button onClick={handleSubmit}>Add Video</button>
+      <button onClick={handleSubmit}>
+        {editableVideo ? "edit video" : "Add Video"}
+      </button>
     </form>
   );
 }

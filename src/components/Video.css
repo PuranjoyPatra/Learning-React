@@ -1,32 +1,44 @@
-.container{
-    width: 15em;
-    margin: 0 0.2em;
-    float: left;
+.container {
+  width: 15em;
+  margin: 0 0.2em;
+  float: left;
+  position: relative;
 }
 
-.pic img{
-    width: 100%;
+.pic img {
+  width: 100%;
 }
 
-.title{
-    font-weight: bold;
-    color: gray;
-    margin-bottom: 1em;
+.title {
+  font-weight: bold;
+  color: gray;
+  margin-bottom: 1em;
 }
 
-li{
-    color: white;
+li {
+  color: white;
 }
-ul{
-    margin-bottom: 2em;
-}
-
-.channel, .views{
-    font-size: small;
-    color: #ccc;
-    margin-bottom: 0.2em;
+ul {
+  margin-bottom: 2em;
 }
 
-.views span{
-    padding: 0 0.5em;
+.channel,
+.views {
+  font-size: small;
+  color: #ccc;
+  margin-bottom: 0.2em;
+}
+
+.views span {
+  padding: 0 0.5em;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+}
+
+.edit {
+  position: absolute;
+  right: 3em;
 }

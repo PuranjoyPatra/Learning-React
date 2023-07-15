@@ -1,8 +1,36 @@
 import "./Video.css";
-function Video({ title, channel, views, times, verified, children }) {
+function Video({
+  id,
+  title,
+  channel,
+  views,
+  times,
+  verified,
+  children,
+  deleteVideo,
+  editVideo,
+}) {
   return (
     <>
       <div className='container'>
+        <button
+          className='close'
+          onClick={(e) => {
+            e.stopPropagation();
+            deleteVideo(id);
+          }}
+        >
+          X
+        </button>
+        <button
+          className='edit'
+          onClick={(e) => {
+            e.stopPropagation();
+            editVideo(id);
+          }}
+        >
+          Edit
+        </button>
         <div className='pic'>
           <img
             src='https://images.pexels.com/photos/942208/pexels-photo-942208.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load'

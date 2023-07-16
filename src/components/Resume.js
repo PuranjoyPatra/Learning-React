@@ -4,7 +4,6 @@ const Resume = ({ data }) => {
     document.body.style.background = "white";
     document.body.style.color = "black";
     window.print();
-    alert("successfully print!")
   };
 
   return (

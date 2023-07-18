@@ -5,26 +5,39 @@ import List from "./components/List";
 import Resume from "./components/Resume";
 import Avatar from "./components/Avatar";
 
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import AddVideos from "./components/AddVideos";
 import VideoList from "./components/VideoList";
 
 function App() {
-  const [videos, setVideos] = useState(videosDB);
+  function videoReducer(videos, action) {
+    switch (action.type) {
+      case "ADD":
+        return [...videos, { ...action.payload, id: videos.length + 1 }];
+      case "DELETE":
+        return videos.filter((video) => video.id != action.payload);
+      case "UPDATE":
+        const index = videos.findIndex((v) => v.id == action.payload.id);
+        const newVideos = [...videos];
+        newVideos.splice(index, 1, action.payload);
+        return newVideos;
+      default:
+        return videos;
+    }
+  }
+  //reducer
+  const [videos, dispatch] = useReducer(videoReducer, videosDB);
   const [editable, setEditable] = useState(null);
   function addVideo(video) {
-    setVideos([...videos, { ...video, id: videos.length + 1 }]);
+    dispatch({ type: "ADD", payload: video });
   }
 
   function updateVideo(video) {
-    const index = videos.findIndex((v) => v.id == video.id);
-    const newVideos = [...videos];
-    newVideos.splice(index, 1, video);
-    setVideos(newVideos);
+    dispatch({ type: "UPDATE", payload: video });
   }
 
   function deleteVideo(id) {
-    setVideos(videos.filter((video) => video.id != id));
+    dispatch({ type: "DELETE", payload: id });
   }
 
   function editVideo(id) {

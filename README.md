@@ -1,13 +1,11 @@
-# Getting Started with React Advance
+# Getting Started with React Advance - Reducer is introduced
 
-CRUD functionality is implemented by ### useState:
+CRUD functionality is implemented by ### useReducer:
 
 + C - Create
 + R - Read
 + U - Update
 + D - Delete
 
-### useEffect 
-hooc is introduced for updating
 
 keep updating ...

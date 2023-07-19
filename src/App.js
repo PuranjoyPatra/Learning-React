@@ -10,16 +10,19 @@ import AddVideos from "./components/AddVideos";
 import VideoList from "./components/VideoList";
 
 function App() {
+  const [editable, setEditable] = useState(null);
+
   function videoReducer(videos, action) {
     switch (action.type) {
       case "ADD":
-        return [...videos, { ...action.payload, id: videos.length + 1 }];
+        return [...videos, { ...action.payload, id: videos.length + 4 }];
       case "DELETE":
         return videos.filter((video) => video.id != action.payload);
       case "UPDATE":
         const index = videos.findIndex((v) => v.id == action.payload.id);
         const newVideos = [...videos];
         newVideos.splice(index, 1, action.payload);
+        setEditable(null);
         return newVideos;
       default:
         return videos;
@@ -27,18 +30,6 @@ function App() {
   }
   //reducer
   const [videos, dispatch] = useReducer(videoReducer, videosDB);
-  const [editable, setEditable] = useState(null);
-  function addVideo(video) {
-    dispatch({ type: "ADD", payload: video });
-  }
-
-  function updateVideo(video) {
-    dispatch({ type: "UPDATE", payload: video });
-  }
-
-  function deleteVideo(id) {
-    dispatch({ type: "DELETE", payload: id });
-  }
 
   function editVideo(id) {
     setEditable(videos.find((video) => video.id === id));
@@ -46,16 +37,8 @@ function App() {
 
   return (
     <div className='App' onClick={() => console.log("App")}>
-      <AddVideos
-        addVideos={addVideo}
-        updateVideo={updateVideo}
-        editableVideo={editable}
-      />
-      <VideoList
-        videos={videos}
-        deleteVideo={deleteVideo}
-        editVideo={editVideo}
-      />
+      <AddVideos dispatch={dispatch} editableVideo={editable} />
+      <VideoList videos={videos} dispatch={dispatch} editVideo={editVideo} />
     </div>
   );
 }

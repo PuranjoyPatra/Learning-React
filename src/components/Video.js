@@ -7,7 +7,7 @@ function Video({
   times,
   verified,
   children,
-  deleteVideo,
+  dispatch,
   editVideo,
 }) {
   return (
@@ -17,7 +17,7 @@ function Video({
           className='close'
           onClick={(e) => {
             e.stopPropagation();
-            deleteVideo(id);
+            dispatch({ type: "DELETE", payload: id });
           }}
         >
           X

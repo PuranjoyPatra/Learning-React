@@ -45,3 +45,14 @@ h2 {
   list-style-type: lower-roman;
   color: antiquewhite;
 }
+
+.lightMode{
+  background-color: #fff;
+}
+.lightMode button{
+  background-color: gray;
+  border: 1px solid black;
+  color: white;
+}
+
+

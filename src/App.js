@@ -5,9 +5,10 @@ import List from "./components/List";
 import Resume from "./components/Resume";
 import Avatar from "./components/Avatar";
 
-import { useReducer, useState } from "react";
+import { useContext, useReducer, useState } from "react";
 import AddVideos from "./components/AddVideos";
 import VideoList from "./components/VideoList";
+import ThemeContext from "./context/Context";
 
 function App() {
   const [editable, setEditable] = useState(null);
@@ -31,15 +32,22 @@ function App() {
   //reducer
   const [videos, dispatch] = useReducer(videoReducer, videosDB);
 
+const [mode, setMode] = useState('darkMode')
+
+console.log(mode);
+
   function editVideo(id) {
     setEditable(videos.find((video) => video.id === id));
   }
 
   return (
-    <div className='App' onClick={() => console.log("App")}>
+    <ThemeContext.Provider value={mode}>
+    <div className={`App ${mode}`} onClick={() => console.log("App", mode)}>
+      <button onClick={()=>setMode(mode=='darkMode'?'lightMode':'darkMode')}>Change Theme</button>
       <AddVideos dispatch={dispatch} editableVideo={editable} />
       <VideoList videos={videos} dispatch={dispatch} editVideo={editVideo} />
     </div>
+    </ThemeContext.Provider>
   );
 }
 

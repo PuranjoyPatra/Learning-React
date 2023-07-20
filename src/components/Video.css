@@ -11,8 +11,12 @@
 
 .title {
   font-weight: bold;
-  color: gray;
+  color: #ccc;
   margin-bottom: 1em;
+}
+
+.lightMode .title{
+  color: black;
 }
 
 li {
@@ -25,8 +29,13 @@ ul {
 .channel,
 .views {
   font-size: small;
-  color: #ccc;
+  color: lightgray;
   margin-bottom: 0.2em;
+}
+
+.lightMode .channel, .lightMode .views{
+  font-weight: 500;
+  color: blue
 }
 
 .views span {

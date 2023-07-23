@@ -39,8 +39,34 @@ h2 {
   margin: 5px 0;
 }
 
- li {
+li {
   /* font-size: 15px; */
   list-style-type: disc;
   color: white;
+}
+
+/* for digital clock and stop watch */
+
+.digitalClock,
+.stopWatch {
+  color: white;
+  text-align: center;
+}
+
+.btn{
+  text-align: center;
+}
+
+.clBtn {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border-radius: 0.7em;
+  border: 1px solid yellow;
+  cursor: pointer;
+}
+.clBtn:hover {
+  background-color: lightgreen;
+  color: darkblue;
 }

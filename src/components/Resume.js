@@ -1,13 +1,18 @@
-const Resume = ({ data }) => {
-  function beforePrint() {
-    console.log("on before");
-    document.body.style.background = "white";
-    document.body.style.color = "black";
-    window.print();
-  };
+import Avatar from "./Avatar";
+import "./PlayButton.css"
 
+const Resume = ({ data }) => {
+  
   return (
     <>
+    <h1>Resume</h1>
+      <Avatar
+        size={100}
+        person={{
+          name: "Katsuko Saruhashi",
+          imageId: "YfeOqp2",
+        }}
+      />
       <div className='stuff'>
         <p className='email'>💌 katsuko@gmail.com</p>
         <p className='head'>Interests</p>
@@ -62,7 +67,7 @@ const Resume = ({ data }) => {
         <button
           onClick={(e) => {
             e.stopPropagation();
-            beforePrint()
+            window.print();
           }}
         >
           Print

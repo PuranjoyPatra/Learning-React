@@ -70,3 +70,20 @@ li {
   background-color: lightgreen;
   color: darkblue;
 }
+
+/* select option input */
+
+input{
+  margin: 10px 10px;
+  padding: 0.4em;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+select{
+  padding: 5px;
+  margin: 10px;
+  font-size: 1em;
+  font-weight: 700;
+  text-align: center;
+}

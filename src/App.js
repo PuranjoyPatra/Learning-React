@@ -8,15 +8,18 @@ import Event from "./components/Event";
 
 import { useState } from "react";
 import Clock from "./components/Clock";
+import SelectionOption from "./components/SelectionOption";
 
 function App() {
   return (
     <div className='App'>
-      <h2>Assignment: Resume Builder</h2>
+<SelectionOption/>  
+
+      {/* <h2>Assignment: Resume Builder</h2>
 
       <Resume data={resume} />
 
-      <Clock/>
+      <Clock/> */}
 
       {/* <h2>Assignment: Chapter 3</h2>
       <List layout='numbered' items={videos} />

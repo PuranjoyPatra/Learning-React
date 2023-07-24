@@ -1,7 +1,5 @@
-// import { useContext } from "react";
-import { useContext } from "react";
 import "./Video.css";
-import VideoDispatchContext from "../context/VideoDispatchContext";
+import useVideoDispatch from "../hook/VideoDispatch";
 // import ThemeContext from "../context/Context";
 
 function Video({
@@ -17,11 +15,15 @@ function Video({
   // const theme = useContext(ThemeContext)
   // console.log("video", theme);
 
-  const dispatch = useContext(VideoDispatchContext)
+  // const dispatch = useContext(VideoDispatchContext)
+
+  // use custom hook
+
+  const dispatch = useVideoDispatch();
 
   return (
     <>
-      <div className="container">
+      <div className='container'>
         <button
           className='close'
           onClick={(e) => {

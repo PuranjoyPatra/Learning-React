@@ -1,16 +1,19 @@
 import Video from "./Video";
-import Border from "./Border";
 import PlayButton from "./PlayButton";
-import { useContext } from "react";
-import VideoContext from "../context/VideoContext";
+import useVideo from "../hook/Video";
 
-function VideoList({editVideo }) {
-  const videos = useContext(VideoContext)
+function VideoList({ editVideo }) {
+  // const videos = useContext(VideoContext)
+
+  // use custom hook
+
+  const videos = useVideo();
+
   return (
     <>
       {videos.map((video) => (
         <Video
-        key={video.id}
+          key={video.id}
           id={video.id}
           title={video.title}
           channel={video.channel}

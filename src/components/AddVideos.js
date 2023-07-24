@@ -1,7 +1,6 @@
-import VideoDispatchContext from "../context/VideoDispatchContext";
 import useVideoDispatch from "../hook/VideoDispatch";
 import "./AddVideos.css";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 function AddVideos({ editableVideo }) {
   const initState = {
@@ -12,7 +11,10 @@ function AddVideos({ editableVideo }) {
     verified: false,
   };
   const [video, setVideo] = useState(initState);
-  const dispatch = useContext(VideoDispatchContext)
+  // const dispatch = useContext(VideoDispatchContext)
+  // use custom hook
+
+  const dispatch = useVideoDispatch();
 
   // const dispatch = useVideoDispatch()
 

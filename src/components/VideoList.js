@@ -1,8 +1,11 @@
 import Video from "./Video";
 import Border from "./Border";
 import PlayButton from "./PlayButton";
+import { useContext } from "react";
+import VideoContext from "../context/VideoContext";
 
-function VideoList({ videos, dispatch, editVideo }) {
+function VideoList({editVideo }) {
+  const videos = useContext(VideoContext)
   return (
     <>
       {videos.map((video) => (
@@ -14,7 +17,6 @@ function VideoList({ videos, dispatch, editVideo }) {
           views={video.views}
           times={video.times}
           verified={video.verified}
-          dispatch={dispatch}
           editVideo={editVideo}
         >
           <PlayButton

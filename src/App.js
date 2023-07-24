@@ -9,6 +9,8 @@ import { useContext, useReducer, useState } from "react";
 import AddVideos from "./components/AddVideos";
 import VideoList from "./components/VideoList";
 import ThemeContext from "./context/Context";
+import VideoContext from "./context/VideoContext";
+import VideoDispatchContext from "./context/VideoDispatchContext";
 
 function App() {
   const [editable, setEditable] = useState(null);
@@ -42,11 +44,15 @@ console.log(mode);
 
   return (
     <ThemeContext.Provider value={mode}>
+      <VideoContext.Provider value={videos}>
+        <VideoDispatchContext.Provider value={dispatch}>
     <div className={`App ${mode}`} onClick={() => console.log("App", mode)}>
       <button onClick={()=>setMode(mode=='darkMode'?'lightMode':'darkMode')}>Change Theme</button>
-      <AddVideos dispatch={dispatch} editableVideo={editable} />
-      <VideoList videos={videos} dispatch={dispatch} editVideo={editVideo} />
+      <AddVideos editableVideo={editable} />
+      <VideoList editVideo={editVideo} />
     </div>
+    </VideoDispatchContext.Provider>
+    </VideoContext.Provider>
     </ThemeContext.Provider>
   );
 }

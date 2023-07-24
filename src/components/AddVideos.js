@@ -1,7 +1,9 @@
+import VideoDispatchContext from "../context/VideoDispatchContext";
+import useVideoDispatch from "../hook/VideoDispatch";
 import "./AddVideos.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
-function AddVideos({ dispatch, editableVideo }) {
+function AddVideos({ editableVideo }) {
   const initState = {
     channel: "code with OS",
     title: "",
@@ -10,6 +12,9 @@ function AddVideos({ dispatch, editableVideo }) {
     verified: false,
   };
   const [video, setVideo] = useState(initState);
+  const dispatch = useContext(VideoDispatchContext)
+
+  // const dispatch = useVideoDispatch()
 
   function handleChange(e) {
     // console.log(e.target.name, e.target.value);

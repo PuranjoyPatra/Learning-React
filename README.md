@@ -1,9 +1,6 @@
-# Getting Started with React Advance - 
-## `useRef` 
-# is introduced
+# Getting Started with React Advance - `useRef`
 
-CRUD functionality is implemented by 
-## `useRef`:
+CRUD functionality is implemented by `useRef`:
 
 + C - Create
 + R - Read

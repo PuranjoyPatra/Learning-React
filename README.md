@@ -1,11 +1,16 @@
-# Getting Started with React Advance - Reducer is introduced
+# Getting Started with React Advance - 
+## `useRef` 
+# is introduced
 
-CRUD functionality is implemented by ### useReducer:
+CRUD functionality is implemented by 
+## `useRef`:
 
 + C - Create
 + R - Read
 + U - Update
 + D - Delete
 
+## Esacape Hatches:
+    - hatches that let you “step outside” React and connect to external systems. Most of your application logic and data flow should not rely on these features.
 
 keep updating ...

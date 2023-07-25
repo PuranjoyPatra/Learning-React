@@ -1,6 +1,7 @@
 import Video from "./Video";
 import PlayButton from "./PlayButton";
 import useVideo from "../hook/Video";
+import { useCallback, useMemo } from "react";
 
 function VideoList({ editVideo }) {
   // const videos = useContext(VideoContext)
@@ -8,6 +9,16 @@ function VideoList({ editVideo }) {
   // use custom hook
 
   const videos = useVideo();
+  const play = useCallback(() => console.log("playing..."), []);
+  const pause = useCallback(() => console.log("paused..."), []);
+  const memoButton = useMemo(
+    () => (
+      <PlayButton onPlay={play} onPause={pause}>
+        Play
+      </PlayButton>
+    ),
+    []
+  );
 
   return (
     <>
@@ -22,12 +33,7 @@ function VideoList({ editVideo }) {
           verified={video.verified}
           editVideo={editVideo}
         >
-          <PlayButton
-            onPlay={() => console.log("playing...", video.title)}
-            onPause={() => console.log("paused. ", video.title)}
-          >
-            {video.title}
-          </PlayButton>
+          {memoButton}
         </Video>
       ))}
     </>

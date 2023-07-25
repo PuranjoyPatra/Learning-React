@@ -5,7 +5,7 @@ import List from "./components/List";
 import Resume from "./components/Resume";
 import Avatar from "./components/Avatar";
 
-import { useContext, useReducer, useState } from "react";
+import { useCallback, useContext, useReducer, useState } from "react";
 import AddVideos from "./components/AddVideos";
 import VideoList from "./components/VideoList";
 import ThemeContext from "./context/Context";
@@ -40,9 +40,9 @@ function App() {
 
   console.log(mode);
 
-  function editVideo(id) {
+  const editVideo = useCallback(function editVideo(id) {
     setEditable(videos.find((video) => video.id === id));
-  }
+  }, [])
 
   return (
     <ThemeContext.Provider value={mode}>

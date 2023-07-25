@@ -1,8 +1,9 @@
 import "./Video.css";
 import useVideoDispatch from "../hook/VideoDispatch";
+import { memo } from "react";
 // import ThemeContext from "../context/Context";
 
-function Video({
+const Video = memo(function Video({
   id,
   title,
   channel,
@@ -13,7 +14,7 @@ function Video({
   editVideo,
 }) {
   // const theme = useContext(ThemeContext)
-  // console.log("video", theme);
+  console.log("rendering video ");
 
   // const dispatch = useContext(VideoDispatchContext)
 
@@ -61,6 +62,6 @@ function Video({
       </div>
     </>
   );
-}
+});
 
 export default Video;

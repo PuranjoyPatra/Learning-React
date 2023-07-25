@@ -1,6 +1,16 @@
+import { memo } from "react";
 import "./PlayButton.css";
 import { useState } from "react";
-function PlayButton({ name, message, children, onClick, onPlay, onPause }) {
+
+const PlayButton = memo(function PlayButton({
+  name,
+  message,
+  children,
+  onClick,
+  onPlay,
+  onPause,
+}) {
+  console.log("rendering play button");
   const [playing, setPlaying] = useState(false);
 
   function handleClick(e) {
@@ -12,7 +22,11 @@ function PlayButton({ name, message, children, onClick, onPlay, onPause }) {
     setPlaying(!playing);
   }
 
-  return <button onClick={handleClick}>{children} : {playing?'⏸️' : '▶️'}</button>;
-}
+  return (
+    <button onClick={handleClick}>
+      {children} : {playing ? "⏸️" : "▶️"}
+    </button>
+  );
+});
 
 export default PlayButton;

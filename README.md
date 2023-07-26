@@ -1,6 +1,6 @@
 # Getting Started with React Advance
 
-CRUD functionality is implemented by ### useState:
+CRUD functionality is implemented by `useState``:
 
 + C - Create
 + R - Read
@@ -9,5 +9,8 @@ CRUD functionality is implemented by ### useState:
 
 ### useEffect 
 hooc is introduced for updating
+
+## lazy() API and `<Suspense>`
+
 
 keep updating ...

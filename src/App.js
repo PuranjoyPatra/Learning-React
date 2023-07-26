@@ -5,13 +5,18 @@ import List from "./components/List";
 import Resume from "./components/Resume";
 import Avatar from "./components/Avatar";
 
-import { useState } from "react";
+import { Suspense, lazy, useState } from "react";
 import AddVideos from "./components/AddVideos";
 import VideoList from "./components/VideoList";
+
+const Dummy = lazy(() => import("./components/Dummy.js"));
 
 function App() {
   const [videos, setVideos] = useState(videosDB);
   const [editable, setEditable] = useState(null);
+
+  const [show, setShow] = useState(false);
+
   function addVideo(video) {
     setVideos([...videos, { ...video, id: videos.length + 1 }]);
   }
@@ -43,6 +48,12 @@ function App() {
         deleteVideo={deleteVideo}
         editVideo={editVideo}
       />
+      <button onClick={() => setShow(true)}>Show</button>
+      {show ? (
+        <Suspense fallback={<>Loading...</>}>
+          <Dummy />
+        </Suspense>
+      ) : null}
     </div>
   );
 }

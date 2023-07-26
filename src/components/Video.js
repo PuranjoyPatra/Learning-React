@@ -1,6 +1,6 @@
 import "./Video.css";
 import useVideoDispatch from "../hook/VideoDispatch";
-import { memo } from "react";
+import { memo, useLayoutEffect, useRef } from "react";
 // import ThemeContext from "../context/Context";
 
 const Video = memo(function Video({
@@ -21,6 +21,12 @@ const Video = memo(function Video({
   // use custom hook
 
   const dispatch = useVideoDispatch();
+  // const videoRef = useRef();
+
+  // useLayoutEffect(() => {
+  //   const { height } = videoRef.current.getBoundingClientRect();
+  //   console.log(height);
+  // }, []);
 
   return (
     <>

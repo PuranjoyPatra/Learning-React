@@ -67,7 +67,7 @@ function App() {
             <button onClick={() => inputRef.current.jumpTo()}>Focus</button>
 
             <AddVideos ref={inputRef} editableVideo={editable} />
-            {/* <VideoList editVideo={editVideo} /> */}
+            <VideoList editVideo={editVideo} />
           </div>
         </VideoDispatchContext.Provider>
       </VideoContext.Provider>

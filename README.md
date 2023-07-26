@@ -13,4 +13,13 @@ CRUD functionality is implemented by `useRef`:
 ### Memoization
 => `useCallback` , `useMemo` and memo() through these memoized the code base to not render a component for everytime.
 
+## forwardRef & useImperativeHandle
+=> use reference from parent (here App component ) to child component (AddVideo component)
+
+useImperativeHandle is used when it need to limit some access or rename the default DOM api function
+
+## useLayoutEffect
+=> version of `useEffect`. it fires before browser repaint screen. but pitfall is that `useLayoutEffect` can hurt performance.
+
+it is used for measurement of layout (height, width etc.) or design purpose before rendering the components.
 keep updating ...

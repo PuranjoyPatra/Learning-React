@@ -5,7 +5,7 @@ import List from "./components/List";
 import Resume from "./components/Resume";
 import Avatar from "./components/Avatar";
 
-import { useCallback, useContext, useReducer, useState } from "react";
+import { useCallback, useContext, useReducer, useRef, useState } from "react";
 import AddVideos from "./components/AddVideos";
 import VideoList from "./components/VideoList";
 import ThemeContext from "./context/Context";
@@ -14,7 +14,7 @@ import VideoDispatchContext from "./context/VideoDispatchContext";
 import Counter from "./components/Counter";
 
 function App() {
-  console.log('rendering App');
+  console.log("rendering App");
   const [editable, setEditable] = useState(null);
 
   function videoReducer(videos, action) {
@@ -37,12 +37,13 @@ function App() {
   const [videos, dispatch] = useReducer(videoReducer, videosDB);
 
   const [mode, setMode] = useState("darkMode");
+  const inputRef = useRef(null);
 
   console.log(mode);
 
   const editVideo = useCallback(function editVideo(id) {
     setEditable(videos.find((video) => video.id === id));
-  }, [])
+  }, []);
 
   return (
     <ThemeContext.Provider value={mode}>
@@ -52,10 +53,10 @@ function App() {
             className={`App ${mode}`}
             onClick={() => console.log("App", mode)}
           >
-            <Counter/>
+            {/* <Counter/>
             <br />
             <hr />
-            <br />
+            <br /> */}
             <button
               onClick={() =>
                 setMode(mode == "darkMode" ? "lightMode" : "darkMode")
@@ -63,8 +64,10 @@ function App() {
             >
               Change Theme
             </button>
-            <AddVideos editableVideo={editable} />
-            <VideoList editVideo={editVideo} />
+            <button onClick={() => inputRef.current.focus()}>Focus</button>
+
+            <AddVideos ref={inputRef} editableVideo={editable} />
+            {/* <VideoList editVideo={editVideo} /> */}
           </div>
         </VideoDispatchContext.Provider>
       </VideoContext.Provider>

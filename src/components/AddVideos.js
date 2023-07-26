@@ -1,9 +1,9 @@
 import useVideoDispatch from "../hook/VideoDispatch";
 import "./AddVideos.css";
-import { useEffect, useRef, useState } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 
-function AddVideos({ editableVideo }) {
-  const inputRef = useRef(null);
+const AddVideos = forwardRef(function AddVideos({ editableVideo }, ref) {
+  // const inputRef = useRef(null);
   const initState = {
     channel: "code with OS",
     title: "",
@@ -40,14 +40,14 @@ function AddVideos({ editableVideo }) {
       setVideo(editableVideo);
     }
 
-    inputRef.current.focus();
-    inputRef.current.placeholder = "type your name here";
+    // inputRef.current.focus();
+    // inputRef.current.placeholder = "type your name here";
   }, [editableVideo]);
 
   return (
     <form>
       <input
-        ref={inputRef}
+        ref={ref}
         type='text'
         onChange={handleChange}
         name='title'
@@ -66,6 +66,6 @@ function AddVideos({ editableVideo }) {
       </button>
     </form>
   );
-}
+})
 
 export default AddVideos;

@@ -22,4 +22,8 @@ useImperativeHandle is used when it need to limit some access or rename the defa
 => version of `useEffect`. it fires before browser repaint screen. but pitfall is that `useLayoutEffect` can hurt performance.
 
 it is used for measurement of layout (height, width etc.) or design purpose before rendering the components.
+
+## useDebugValue
+=> debugging for react component  09:11 
+
 keep updating ...

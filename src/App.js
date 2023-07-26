@@ -64,7 +64,7 @@ function App() {
             >
               Change Theme
             </button>
-            <button onClick={() => inputRef.current.focus()}>Focus</button>
+            <button onClick={() => inputRef.current.jumpTo()}>Focus</button>
 
             <AddVideos ref={inputRef} editableVideo={editable} />
             {/* <VideoList editVideo={editVideo} /> */}

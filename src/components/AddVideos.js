@@ -1,9 +1,10 @@
+import { useImperativeHandle } from "react";
 import useVideoDispatch from "../hook/VideoDispatch";
 import "./AddVideos.css";
 import { forwardRef, useEffect, useRef, useState } from "react";
 
 const AddVideos = forwardRef(function AddVideos({ editableVideo }, ref) {
-  // const inputRef = useRef(null);
+  const iRef = useRef(null);
   const initState = {
     channel: "code with OS",
     title: "",
@@ -35,6 +36,19 @@ const AddVideos = forwardRef(function AddVideos({ editableVideo }, ref) {
     setVideo(initState);
     // console.log(video);
   }
+
+  useImperativeHandle(
+    ref,
+    () => {
+      return {
+        jumpTo() {
+          iRef.current.focus();
+        },
+      };
+    },
+    []
+  );
+
   useEffect(() => {
     if (editableVideo) {
       setVideo(editableVideo);
@@ -47,7 +61,7 @@ const AddVideos = forwardRef(function AddVideos({ editableVideo }, ref) {
   return (
     <form>
       <input
-        ref={ref}
+        ref={iRef}
         type='text'
         onChange={handleChange}
         name='title'
@@ -66,6 +80,6 @@ const AddVideos = forwardRef(function AddVideos({ editableVideo }, ref) {
       </button>
     </form>
   );
-})
+});
 
 export default AddVideos;

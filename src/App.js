@@ -9,11 +9,16 @@ import Event from "./components/Event";
 import { useState } from "react";
 import Clock from "./components/Clock";
 import SelectionOption from "./components/SelectionOption";
-
+import Counter from "./components/Counter";
+import useWindowSize from "./hooks/WindowSize";
 function App() {
+  const [width, height] = useWindowSize()
+  // console.log({width, height});
   return (
     <div className='App'>
-<SelectionOption/>  
+      <SelectionOption />
+      <Counter/>
+      
 
       {/* <h2>Assignment: Resume Builder</h2>
 

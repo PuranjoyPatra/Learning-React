@@ -11,14 +11,15 @@ import Clock from "./components/Clock";
 import SelectionOption from "./components/SelectionOption";
 import Counter from "./components/Counter";
 import useWindowSize from "./hooks/WindowSize";
+import Posts from "./components/Posts";
 function App() {
   const [width, height] = useWindowSize()
   // console.log({width, height});
   return (
     <div className='App'>
-      <SelectionOption />
-      <Counter/>
-      
+      {/* <SelectionOption />
+      <Counter/> */}
+      <Posts/>
 
       {/* <h2>Assignment: Resume Builder</h2>
 
